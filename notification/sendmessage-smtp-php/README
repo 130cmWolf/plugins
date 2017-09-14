@@ -2,3 +2,7 @@ ZABBIX-JP
 Top / 日本語アラートメールの送信方法
 
 http://www.zabbix.jp/node/1441
+
+
+composer require phpmailer/phpmailer
+composer require michelf/php-markdown
