@@ -131,11 +131,11 @@ function getNextThreadIndex($parent)
     
     $parentdate = new DateTime("1601-01-01T00:00:00.000Z");
     $parentdate->modify("+". sprintf("%d",hexdec(substr($parenthex, 0, 12) ."0000")/10 /1000/1000). " seconds" );
-    
+
     $c_time_offset  = ((new DateTime())->getTimeStamp() - $parentdate->getTimeStamp()) *10 *1000 *1000;
     $time_diff  = sprintf("%064s",decbin($c_time_offset)) ."\n";
-    $binary = substr($time_diff, 15, 31);
-    return base64_encode(hex2bin($parenthex . sprintf("%010X", intval(sprintf("%040s", $binary),2))));
+    $binary = substr($time_diff, 23, 31);
+    return base64_encode(hex2bin($parenthex . sprintf("%010X", intval($binary,2))));
 }
 
 $mailer = new PHPMailer();
